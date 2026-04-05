@@ -1,0 +1,29 @@
+{
+  "name": "wcag-auditor",
+  "version": "0.1.0",
+  "description": "Claude Code skill: audit your own web app for WCAG 2.2 accessibility compliance, generate findings reports, and fill in VPAT 2.5 INT ACRs.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "author": "Scott Baldwin",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "audit": "node skills/wcag-auditor/scripts/audit.mjs",
+    "audit:site": "node skills/wcag-auditor/scripts/audit-site.mjs",
+    "login": "node skills/wcag-auditor/scripts/login.mjs",
+    "score": "node skills/wcag-auditor/scripts/score.mjs",
+    "report": "node skills/wcag-auditor/scripts/report-generate.mjs",
+    "vpat:fill": "node skills/wcag-auditor/scripts/vpat-fill.mjs",
+    "gen:axe-mapping": "node skills/wcag-auditor/scripts/gen-axe-mapping.mjs"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.0",
+    "axe-core": "^4.11.2",
+    "docx": "^9.0.0",
+    "fast-xml-parser": "^4.5.0",
+    "jszip": "^3.10.1",
+    "playwright": "^1.48.0"
+  }
+}

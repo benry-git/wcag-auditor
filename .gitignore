@@ -1,0 +1,27 @@
+node_modules/
+package-lock.json
+
+# Audit outputs
+audit-*.json
+/audit/
+report.md
+ACR-*.docx
+VPAT-*.docx
+
+# Auth state (contains live session credentials — NEVER commit)
+auth.json
+*.auth.json
+
+# Env
+.env
+.env.*
+!.env.example
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+.vscode/
+.idea/
+*.swp

@@ -2,10 +2,9 @@
   "name": "wcag-auditor",
   "version": "0.1.0",
   "description": "Audit your own web app for WCAG 2.2 accessibility compliance. Runs axe-core via Playwright against public and authenticated routes, maps violations to WCAG success criteria, proposes remediation diffs against your source, and fills in VPAT 2.5 INT ACRs.",
-  "author": "Scott Baldwin",
+  "author": {
+    "name": "Scott Baldwin"
+  },
   "license": "MIT",
-  "homepage": "https://github.com/benry-git/wcag-auditor",
-  "skills": [
-    "skills/wcag-auditor"
-  ]
+  "homepage": "https://github.com/benry-git/wcag-auditor"
 }

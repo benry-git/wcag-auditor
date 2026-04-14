@@ -4,6 +4,14 @@ description: Use when the user wants to audit their own web application for WCAG
 version: "0.1.0"
 author: Scott Baldwin
 license: MIT
+tags:
+  - accessibility
+  - wcag
+  - a11y
+  - axe-core
+  - playwright
+  - vpat
+  - testing
 ---
 
 # WCAG Auditor

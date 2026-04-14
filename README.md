@@ -16,33 +16,72 @@ read your source to locate and fix violations.
 
 ## Install
 
-This repo ships as **both** a Claude Code plugin and a standalone skill. Pick
-whichever install path suits you:
+This repo ships as both a Claude Code plugin (via a one-plugin marketplace) and
+a standalone skill. Pick whichever fits your workflow.
 
-### As a plugin (recommended)
-
-```
-/plugin install /path/to/wcag-auditor
-```
-
-### As a standalone skill
-
-```
-cp -r skills/wcag-auditor ~/.claude/skills/
-```
-
-## Requirements
+### Requirements (all install paths)
 
 - **Node.js >= 22** (current active LTS)
-- **Playwright Chromium** — installed automatically with `npx playwright install chromium`
+- **Playwright Chromium** — installed via `npx playwright install chromium`
+  after the skill's runtime deps are in place
 
-Install the runtime dependencies:
+### Option 1 — Claude Code plugin marketplace (recommended)
+
+From any Claude Code session:
 
 ```
-cd wcag-auditor
+/plugin marketplace add benry-git/wcag-auditor
+/plugin install wcag-auditor@wcag-auditor-tools
+```
+
+Then install the runtime dependencies once. The plugin is cached at
+`~/.claude/plugins/cache/` — find the actual path from the install output,
+then:
+
+```bash
+cd <cached-plugin-path>/skills/wcag-auditor
 npm install
 npx playwright install chromium
 ```
+
+Skills invoked from the plugin are namespaced as `wcag-auditor:*`.
+
+### Option 2 — Skillsmith CLI
+
+```bash
+npx -y @skillsmith/cli install github:benry-git/wcag-auditor
+cd ~/.claude/skills/wcag-auditor
+npm install
+npx playwright install chromium
+```
+
+Requires [`@skillsmith/cli`](https://www.skillsmith.app/). Handles download +
+installation to `~/.claude/skills/` automatically.
+
+### Option 3 — Manual skill copy
+
+```bash
+git clone https://github.com/benry-git/wcag-auditor.git
+cp -r wcag-auditor/skills/wcag-auditor ~/.claude/skills/
+cd ~/.claude/skills/wcag-auditor
+npm install
+npx playwright install chromium
+```
+
+The simplest path — no tooling beyond `git` and `npm`. Works offline after the
+initial clone and `npm install`.
+
+### Option 4 — Local plugin-dir session (dev / testing)
+
+For trying the plugin without a persistent install:
+
+```bash
+git clone https://github.com/benry-git/wcag-auditor.git
+cd wcag-auditor && npm install && npx playwright install chromium
+claude --plugin-dir ./
+```
+
+The plugin is active only for that Claude Code session.
 
 ## Quick start
 

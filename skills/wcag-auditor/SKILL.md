@@ -50,15 +50,32 @@ Do **not** use this skill for:
 
 ## Workflow
 
-### 1. Clarify scope
+### 1. Clarify scope (mandatory gate)
 
-Ask the user (one at a time):
+**You MUST confirm all scope parameters with the user via the `AskUserQuestion`
+tool before running any audit, login, or score script.** This holds even when
+the user's prompt appears complete and even when defaults seem obviously
+correct — the user has explicitly opted into confirming defaults rather than
+having them silently assumed.
 
-- **Target:** URL(s), or dev server / staging origin
-- **WCAG level:** AA (default) or AAA (opt-in). AAA is aspirational — flag if the user is unsure.
-- **Auth:** are some routes behind a login?
-- **Viewports:** defaults are 1280×800 (desktop) + 375×667 (mobile). Override if needed.
-- **Framework:** ask only if not obvious from the repo (needed for URL discovery)
+The only exception: if the user has said in this conversation "use defaults,
+don't ask" (or equivalent), skip to step 2.
+
+Use `AskUserQuestion` to confirm each of the following. Pre-fill the option
+list with the inferred or default value marked, so the user can accept with
+one click:
+
+- **Target URL(s)** — the URL, dev server, or staging origin to audit. If the
+  user provided one, present it as the default option alongside "something
+  else". If not, this is a free-text answer.
+- **WCAG level** — options: `AA (default)`, `AAA (opt-in, aspirational)`.
+- **Auth required** — options: `No, public routes only`, `Yes, capture session via login.mjs`.
+- **Viewports** — options: `Desktop 1280×800 + mobile 375×667 (default)`, `Custom`.
+- **Framework** — only ask if the framework is not unambiguously detectable
+  from the repo (`package.json`, file layout). If detection is clear, state
+  the detected framework in your next message and proceed without asking.
+
+Do not start step 2 until every applicable question above has been answered.
 
 ### 2. Discover URLs
 

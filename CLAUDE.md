@@ -17,8 +17,8 @@ See `PLAN.md` for the full design decisions and scope.
 
 ## Repository
 
-- **GitHub:** https://github.com/benry-git/wcag-auditor.git
-- **Clone:** `git clone https://github.com/benry-git/wcag-auditor.git`
+- **GitHub:** https://github.com/benry-products/wcag-auditor.git
+- **Clone:** `git clone https://github.com/benry-products/wcag-auditor.git`
 
 ## Standard session workflow
 

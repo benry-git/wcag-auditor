@@ -1,7 +1,7 @@
 {
   "name": "wcag-auditor-tools",
   "owner": {
-    "name": "benry-git"
+    "name": "benry-products"
   },
   "metadata": {
     "description": "Claude Code plugin marketplace for the wcag-auditor accessibility audit skill."

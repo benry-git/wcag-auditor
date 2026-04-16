@@ -30,7 +30,7 @@ a standalone skill. Pick whichever fits your workflow.
 From any Claude Code session:
 
 ```
-/plugin marketplace add benry-git/wcag-auditor
+/plugin marketplace add benry-products/wcag-auditor
 /plugin install wcag-auditor@wcag-auditor-tools
 ```
 
@@ -49,7 +49,7 @@ Skills invoked from the plugin are namespaced as `wcag-auditor:*`.
 ### Option 2 — Skillsmith CLI
 
 ```bash
-npx -y @skillsmith/cli install github:benry-git/wcag-auditor
+npx -y @skillsmith/cli install github:benry-products/wcag-auditor
 cd ~/.claude/skills/wcag-auditor
 npm install
 npx playwright install chromium
@@ -61,7 +61,7 @@ installation to `~/.claude/skills/` automatically.
 ### Option 3 — Manual skill copy
 
 ```bash
-git clone https://github.com/benry-git/wcag-auditor.git
+git clone https://github.com/benry-products/wcag-auditor.git
 cp -r wcag-auditor/skills/wcag-auditor ~/.claude/skills/
 cd ~/.claude/skills/wcag-auditor
 npm install
@@ -76,7 +76,7 @@ initial clone and `npm install`.
 For trying the plugin without a persistent install:
 
 ```bash
-git clone https://github.com/benry-git/wcag-auditor.git
+git clone https://github.com/benry-products/wcag-auditor.git
 cd wcag-auditor && npm install && npx playwright install chromium
 claude --plugin-dir ./
 ```

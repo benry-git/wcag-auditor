@@ -4,6 +4,7 @@ description: Use when the user wants to audit their own web application for WCAG
 version: "0.1.7"
 author: Scott Baldwin
 license: MIT
+category: testing
 tags:
   - accessibility
   - wcag
